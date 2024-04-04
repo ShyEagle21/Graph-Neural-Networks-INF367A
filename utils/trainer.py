@@ -121,7 +121,7 @@ class Trainer():
 
     def evaluate(self):
         print("Loading checkpoint...")
-        self.model.load_state_dict(torch.load(self.checkpoint_file))
+        self.model.load_state_dict(torch.load(self.checkpoint_file, map_location=torch.device('cpu')))
         self.model.eval()
         print("Evaluating model on test data...")
         with torch.no_grad():
